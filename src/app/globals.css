@@ -4,9 +4,9 @@
   --errorBackgroundColor:#ffebee;
   --errorColor:#c62828;
   --successBackgroundColor:#e6f4ea;
-  --successColor:#ffebee;
-  --warningBackgroundColor:#ffebee;
-  --warningColor:#ffebee;
+  --successColor:#2e7d32;
+  --warningBackgroundColor:#fff8e1;
+  --warningColor:#ffb300;
 }
 
 html,
