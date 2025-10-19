@@ -17,7 +17,7 @@ export default function HomePage() {
     <div className={styles.container}>
         <div className={styles.show}>
             <h3>Domain</h3>
-            <button onClick={showModal}><IoIosAdd />Add Domain</button>
+            <button onClick={showModal}><IoIosAdd/>Add Domain</button>
         </div>
         <div>
           {isShowModal && <Modal isShowModal={isShowModal} setIsShowModal={setIsShowModal}/> }
