@@ -30,7 +30,7 @@ export default function Modal({isShowModal, setIsShowModal}) {
         }
         else{
             setIsShowModal(false) 
-            console.log("created")
+            console.log(domainData)
         }
     }
   return (
