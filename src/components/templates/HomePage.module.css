@@ -1,0 +1,26 @@
+.container{
+    width: 800px;
+    margin-top: 30px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.show{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+}
+.show h3{
+    font-size: 24px;
+}
+.show button{
+    background-color: var(--primaryColor);
+    color: var(--backgroundColor);
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.1s ease-in;
+}

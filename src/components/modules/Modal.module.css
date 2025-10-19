@@ -1,0 +1,59 @@
+.modal{
+    padding: 20px;
+    width: 500px;
+    margin-top: 50px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header p{
+    font-size: 20px;
+    font-weight: bold;
+}
+.header button{
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #858585;
+}
+.form{
+    margin-top: 20px;
+}
+.inputs{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.inputs label{
+    margin-bottom: 4px;
+}
+.inputs input, .form select{
+    height: 30px;
+    border-radius: 8px;
+    padding: 4px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.buttons button{
+    width: 50px;
+    height: 30px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.1s ease-in;
+}
+.cancel{
+    background-color: var(--backgroundColor);
+    margin-right: 8px;
+}
+.submit{
+    background-color: var(--primaryColor);
+    color: var(--backgroundColor);
+}
