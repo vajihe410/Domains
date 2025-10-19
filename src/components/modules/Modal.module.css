@@ -39,7 +39,16 @@
 .inputs p{
     font-size: 12px;
     color: var(--errorColor);
+    background-color: var(--errorBackgroundColor);
     margin-top: 4px;
+    padding-left: 4px;
+}
+.success{
+    font-size: 16px;
+    color: var(--successColor);
+    text-align: center;
+    background-color: var(--successBackgroundColor);
+    margin-top: 8px;
 }
 .buttons{
     display: flex;

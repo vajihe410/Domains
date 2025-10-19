@@ -15,6 +15,8 @@ export default function Modal({isShowModal, setIsShowModal}) {
         active:false,
     })
     const [errors,setErrors] = useState({})
+    const [success,setSuccess] = useState(false)
+
     const modalHandler = (e) => {
         const {name,value} = e.target
         setDomainData(prev => ({
@@ -29,7 +31,8 @@ export default function Modal({isShowModal, setIsShowModal}) {
             setErrors(errors)
         }
         else{
-            setIsShowModal(false) 
+            setSuccess(true)
+            /* setIsShowModal(false)  */
             console.log(domainData)
         }
     }
@@ -56,7 +59,6 @@ export default function Modal({isShowModal, setIsShowModal}) {
                     </select>
                     {errors.domain && <p>{errors.status}</p>}
                 </div >
-
                 <div className={styles.inputs}>
                     <label htmlFor="active">Active</label>
                     <select name="active" onChange={modalHandler} value={domainData.active ? "True" : "False"}>
@@ -69,6 +71,7 @@ export default function Modal({isShowModal, setIsShowModal}) {
                     <button type="button" onClick={() => {setIsShowModal(false)}} className={styles.cancel}>Cancel</button>
                     <button type="submit" className={styles.submit}>Create</button>
                 </div>
+                {success && <p className={styles.success}>created successfully !!</p>}
             </form>
         </div>
   );
