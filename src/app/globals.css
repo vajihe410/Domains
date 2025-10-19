@@ -1,6 +1,12 @@
 :root {
   --backgroundColor: #ffffff;
   --primaryColor: #171717;
+  --errorBackgroundColor:#ffebee;
+  --errorColor:#c62828;
+  --successBackgroundColor:#e6f4ea;
+  --successColor:#ffebee;
+  --warningBackgroundColor:#ffebee;
+  --warningColor:#ffebee;
 }
 
 html,
