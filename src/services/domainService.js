@@ -1,4 +1,4 @@
-const BASE_URL = "https://domain-danajo.liara.run/api/Domain"
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 async function createDomain (domainData) {
     const res = await fetch(BASE_URL,{
