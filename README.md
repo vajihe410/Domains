@@ -1,5 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
+# Domain
+This is a site for ordering food and products for pets.You can add the desired products to the shopping cart and And you can add your favorite product to your favorite.
+Project Overview:
+This project is a single-page application (SPA) for managing domains. Users can view a list of domains, add new ones, and edit existing domains. The app also provides search and filter functionality, allowing users to quickly find domains by name, active status, or verification status.
 ## Getting Started
 
 First, run the development server:
@@ -15,19 +17,18 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
+install @reduxjs/toolkit, react-redux, react-icons
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
+Table View: Displays all domains along with their details and status in a clean and user-friendly table.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Modal Component: Uses modals to add or edit domains without leaving the main page.
 
-## Learn More
+Validation: Ensures all fields are correctly filled and formatted, with instant feedback for errors or successful submissions. Input fields include domain format (www.example.com), active status (boolean), and domain status (pending, verified, rejected) with corresponding numeric values for API submission.
 
-To learn more about Next.js, take a look at the following resources:
+Search & Filter: Enables searching domains by name and filtering table results based on active status and verification status.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
