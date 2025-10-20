@@ -2,6 +2,7 @@
 import { useState } from "react";
 //Component
 import Modal from "@/modules/Modal";
+import Table from "@/modules/Table";
 //Styles
 import styles from "./HomePage.module.css"
 //Icons
@@ -22,7 +23,7 @@ export default function HomePage() {
         <div>
           {isShowModal && <Modal isShowModal={isShowModal} setIsShowModal={setIsShowModal}/> }
         </div>
-  
+        <Table/>
     </div>
   );
 }
