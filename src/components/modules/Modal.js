@@ -6,13 +6,14 @@ import styles from "./Modal.module.css"
 import { IoIosClose } from "react-icons/io";
 //Functions
 import { ValidateDomainForm } from "@/utils/validation";
+import { createDomain } from "@/services/domainService";
 
 export default function Modal({isShowModal, setIsShowModal}) {
     
     const [domainData, setDomainData] = useState({
         domain:'',
         status:'',
-        active:false,
+        active:'',
     })
     const [errors,setErrors] = useState({})
     const [success,setSuccess] = useState(false)
@@ -21,19 +22,24 @@ export default function Modal({isShowModal, setIsShowModal}) {
         const {name,value} = e.target
         setDomainData(prev => ({
             ...prev,
-            [name] : name === "active" ? value === "True" : value
+            [name] : name === "active" ? value === "True" :value
         }))
     }
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault()
         const {isValid, errors} = ValidateDomainForm(domainData)
         if(!isValid){
             setErrors(errors)
         }
         else{
-            setSuccess(true)
-            /* setIsShowModal(false)  */
-            console.log(domainData)
+          try {
+            const res = await createDomain(domainData); 
+            console.log("Created domain:", res);
+            setSuccess(true);
+            // setIsShowModal(false);
+        } catch (err) {
+            console.error("Error creating domain:", err);
+    }
         }
     }
   return (
@@ -57,15 +63,16 @@ export default function Modal({isShowModal, setIsShowModal}) {
                         <option value="2">verified</option>
                         <option value="3">rejected</option>
                     </select>
-                    {errors.domain && <p>{errors.status}</p>}
+                    {errors.status && <p>{errors.status}</p>}
                 </div >
                 <div className={styles.inputs}>
                     <label htmlFor="active">Active</label>
-                    <select name="active" onChange={modalHandler} value={domainData.active ? "True" : "False"}>
-                        <option>True</option>
-                        <option>False</option>
+                    <select name="active" onChange={modalHandler} value={domainData.active}>
+                        <option value="">select active</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
                     </select>
-                    {errors.domain && <p>{errors.active}</p>}
+                    {errors.active && <p>{errors.active}</p>}
                 </div>
                 <div className={styles.buttons}>
                     <button type="button" onClick={() => {setIsShowModal(false)}} className={styles.cancel}>Cancel</button>
