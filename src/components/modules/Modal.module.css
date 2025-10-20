@@ -71,3 +71,63 @@
     background-color: var(--primaryColor);
     color: var(--backgroundColor);
 }
+@media (max-width: 768px) {
+  .modal {
+    width: 90%;
+    padding: 16px;
+    margin-top: 30px;
+  }
+
+  .header p {
+    font-size: 18px;
+  }
+
+  .buttons button {
+    width: 70px;
+    height: 32px;
+  }
+
+  .success {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    padding: 14px;
+    margin-top: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
+
+  .inputs label {
+    font-size: 14px;
+  }
+
+  .inputs input,
+  .form select {
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+
+  .success {
+    font-size: 13px;
+  }
+}
