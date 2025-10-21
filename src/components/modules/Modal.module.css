@@ -72,9 +72,17 @@
     background-color: var(--backgroundColor);
     margin-right: 8px;
 }
+.cancel:hover{
+    border:1px solid var(--primaryColor)
+}
 .submit{
     background-color: var(--primaryColor);
     color: var(--backgroundColor);
+    border: 1px solid var(--primaryColor);
+}
+.submit:hover{
+   color: var(--primaryColor);
+  background-color: var(--backgroundColor);
 }
 @media (max-width: 768px) {
   .modal {
