@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 //Functions
 import { getDomain } from "@/services/domainService";
 import { formatDate, showStatus } from "@/utils/helper";
+import { applayAllFilters } from "@/utils/filterdomains";
 //Styles
 import styles from "./Table.module.css"
 
@@ -23,7 +24,8 @@ export default function Table() {
     }
     fetchData()
   },[])
-
+  const filterDomains = applayAllFilters(domains.results || [] ,search, filterActive, filterStatus)
+  
   const editHandler = () => {
 
   }
@@ -59,7 +61,7 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {domains.results?.map(i => <tr key={i.id}>
+          {filterDomains?.map(i => <tr key={i.id}>
             <td>{i.domain}</td>
             <td className={styles[showStatus(i.status)]}>{showStatus(i.status)}</td>
             <td className={i.isActive ? styles.active : styles.inactive}>{i.isActive ? "Active" : "Inactive"}</td>
