@@ -24,3 +24,7 @@
     border-radius: 8px;
     transition: all 0.1s ease-in;
 }
+.show button:hover{
+    color: var(--primaryColor);
+    background-color: var(--backgroundColor);
+}
