@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+//Components
+import UpdateModal from "./UpdateModal";
 //Functions
-import { getDomain } from "@/services/domainService";
+import { deleteDomain, getDomain } from "@/services/domainService";
 import { formatDate, showStatus } from "@/utils/helper";
 import { applayAllFilters } from "@/utils/filterdomains";
 //Styles
@@ -11,6 +13,8 @@ export default function Table() {
   const [search, setSearch] = useState("")
   const [filterActive, setFilterActive] = useState("")
   const [filterStatus, setFilterStatus] = useState("")
+  const [isShowUpdateModal, setIsShowUpdateModal] = useState(false)
+  const [selectDomain , setSelectDomain] = useState(null)
 
   useEffect(() => {
     async function fetchData (){
@@ -25,12 +29,23 @@ export default function Table() {
     fetchData()
   },[])
   const filterDomains = applayAllFilters(domains.results || [] ,search, filterActive, filterStatus)
-  
-  const editHandler = () => {
 
+  const editHandler = (domain) => {
+    setSelectDomain(domain)
+    setIsShowUpdateModal(true)
   }
-  const deleteHandler = () => {
-
+  const deleteHandler = async (id) => {
+    try{
+      await deleteDomain(id)
+      const newDomains = {
+        ...domains,
+        "results":domains.results.filter(item => item.id !== id)
+      }
+      setdomains(newDomains)
+    }
+    catch(error){
+      console.log(error)
+    }
   }
   return (
     <div className={styles.container}>
@@ -67,12 +82,13 @@ export default function Table() {
             <td className={i.isActive ? styles.active : styles.inactive}>{i.isActive ? "Active" : "Inactive"}</td>
             <td>{formatDate(i.createdDate)}</td>
             <td>
-              <button onClick={editHandler} className={styles.edit}>Edit</button>
-              <button onClick={deleteHandler} className={styles.delete}>Delete</button>
+              <button onClick={() => editHandler(i)} className={styles.edit}>Edit</button>
+              <button onClick={() => deleteHandler(i.id)} className={styles.delete}>Delete</button>
             </td>
           </tr>)}
         </tbody> 
       </table>
+      {isShowUpdateModal && <UpdateModal selectDomain={selectDomain} setIsShowUpdateModal={setIsShowUpdateModal}  />}
     </div>
   );
 }
